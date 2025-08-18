@@ -1467,6 +1467,10 @@ do { \
 #define NVTX_EXT_IMPL_PAYLOAD_GUARD
 #include "nvtxDetail/nvtxExtImplPayload_v1.h"
 #undef NVTX_EXT_IMPL_PAYLOAD_GUARD
+#else /* NVTX_NO_IMPL */
+#ifndef NVTX_LINKAGE_NO_IMPL
+#error This header was included with NVTX_NO_IMPL but nvToolsExt.h was already included without it.
+#endif
 #endif /* NVTX_NO_IMPL */
 
 #ifdef __GNUC__

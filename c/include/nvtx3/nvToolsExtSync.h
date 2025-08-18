@@ -401,6 +401,10 @@ NVTX_DECLSPEC void NVTX_API nvtxDomainSyncUserReleasing(nvtxSyncUser_t handle);
 #define NVTX_IMPL_GUARD_SYNC /* Ensure other headers cannot be included directly */
 #include "nvtxDetail/nvtxImplSync_v3.h"
 #undef NVTX_IMPL_GUARD_SYNC
-#endif /*NVTX_NO_IMPL*/
+#else /* NVTX_NO_IMPL */
+#ifndef NVTX_LINKAGE_NO_IMPL
+#error This header was included with NVTX_NO_IMPL but nvToolsExt.h was already included without it.
+#endif
+#endif /* NVTX_NO_IMPL */
 
 #endif /* NVTOOLSEXT_SYNC_V3 */

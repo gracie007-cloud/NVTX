@@ -300,7 +300,11 @@ NVTX_DECLSPEC void NVTX_API nvtxCounterBatchSubmit(
 #define NVTX_EXT_IMPL_COUNTERS_GUARD /* Ensure other headers cannot be included directly. */
 #include "nvtxDetail/nvtxExtImplCounters_v1.h"
 #undef NVTX_EXT_IMPL_COUNTERS_GUARD
-#endif /*NVTX_NO_IMPL*/
+#else /* NVTX_NO_IMPL */
+#ifndef NVTX_LINKAGE_NO_IMPL
+#error This header was included with NVTX_NO_IMPL but nvToolsExt.h was already included without it.
+#endif
+#endif /* NVTX_NO_IMPL */
 
 #ifdef __GNUC__
 #pragma GCC visibility pop

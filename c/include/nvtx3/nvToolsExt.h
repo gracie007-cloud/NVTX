@@ -312,6 +312,8 @@
 #define NVTX_SET_NAME_MANGLING_OPTIONS
 #endif
 
+#define NVTX_LINKAGE_NO_IMPL
+
 #elif defined(NVTX_EXPORT_API)
 
 /* Add platform-dependent declaration syntax to ensure NVTX API functions are
@@ -1661,7 +1663,7 @@ NVTX_DECLSPEC void NVTX_API nvtxDomainDestroy(nvtxDomainHandle_t domain);
 
 #ifndef NVTX_NO_IMPL
 #include "nvtxDetail/nvtxImpl.h"
-#endif /*NVTX_NO_IMPL*/
+#endif /* NVTX_NO_IMPL */
 
 #undef NVTX_IMPL_GUARD
 

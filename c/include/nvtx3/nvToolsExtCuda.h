@@ -159,6 +159,10 @@ NVTX_DECLSPEC void NVTX_API nvtxNameCuEventW(CUevent event, const wchar_t* name)
 #define NVTX_IMPL_GUARD_CUDA /* Ensure other headers cannot be included directly */
 #include "nvtxDetail/nvtxImplCuda_v3.h"
 #undef NVTX_IMPL_GUARD_CUDA
-#endif /*NVTX_NO_IMPL*/
+#else /* NVTX_NO_IMPL */
+#ifndef NVTX_LINKAGE_NO_IMPL
+#error This header was included with NVTX_NO_IMPL but nvToolsExt.h was already included without it.
+#endif
+#endif /* NVTX_NO_IMPL */
 
 #endif /* NVTOOLSEXT_CUDA_V3 */
